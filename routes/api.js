@@ -26,7 +26,7 @@ var getdevices_path = 'devices';
 // api to get info of a org
 router.get('/organization', function(req, res) {
 
-  var orgId = req.session.api_key.split(':')[1];
+  var orgId = req.session.api_key.split('-')[1];
   console.log("Info for orgId "+orgId); 
   
   var uri= organizations_path + pathSeperator + orgId;
@@ -38,7 +38,7 @@ router.get('/organization', function(req, res) {
 // api to get devices of a org
 router.get('/organization/getdevices', function(req, res) {
 
-  var orgId = req.session.api_key.split(':')[1];
+  var orgId = req.session.api_key.split('-')[1];
   console.log("Fetching the devices for orgId "+orgId); 
   
   var uri= organizations_path + pathSeperator + orgId + pathSeperator + getdevices_path;
@@ -54,7 +54,7 @@ router.get('/historian/:orgId', function(req, res) {
 
   var orgId = req.params.orgId;
 
-  console.log("Fetching the historian data  for orgId "+orgId); 
+  console.log("Fetching the historian data for orgId "+orgId); 
   
   var uri= historian_path + pathSeperator + orgId ;
 
@@ -68,7 +68,7 @@ router.get('/historian/:orgId/:deviceType', function(req, res) {
   var orgId = req.params.orgId;
   var deviceType = req.params.deviceType;
 
-  console.log("Fetching the historian data  for orgId "+orgId+" for deviceType : "+deviceType); 
+  console.log("Fetching the historian data for orgId "+orgId+" for deviceType : "+deviceType); 
   
   var uri= historian_path + pathSeperator + orgId + pathSeperator + deviceType;
 

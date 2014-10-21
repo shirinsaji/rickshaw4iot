@@ -102,5 +102,5 @@ var Realtime = function(orgId, api_key, auth_token) {
 
 	this.initialize();
 
-	var imageHTML = '<div class="iotdashboardtext">The selected device is not currently sending events to the Internet of Things Founcation</div><br><div class="iotdashboardtext">Select to view historical data or select a different device.</div> <img class="iotimagesMiddle" align="middle" alt="Chart" src="images/IOT_Icons_Thing02.svg">';
+	var imageHTML = '<div class="iotdashboardtext">The selected device is not currently sending events to the Internet of Things Foundation</div><br><div class="iotdashboardtext">Select to view historical data or select a different device.</div> <img class="iotimagesMiddle" align="middle" alt="Chart" src="images/IOT_Icons_Thing02.svg">';
 }

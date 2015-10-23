@@ -16,10 +16,10 @@ var router = express.Router();
 var util = require('../utils/util');
 
 var pathSeperator ='/';
-var base_path='/api/v0001';
+var base_path='/api/v0002';
 var historian_path =  base_path + pathSeperator + 'historian';
-var getdevices_path = 'devices';
-
+var types_path = "types";
+var devices_path = "devices";
 
 //Org APIs
 // api to get info of a org
@@ -41,10 +41,9 @@ router.get('/organization/getdevices', function(req, res) {
   var orgId = req.session.api_key.split('-')[1];
   console.log("Fetching the devices for orgId "+orgId); 
   
-  var uri= base_path + pathSeperator + getdevices_path;
   util.orgId = orgId;
-
-  util.iot_httpCall(uri, req.session.api_key, req.session.auth_token, res);
+  console.log("Calling get");
+  util.getDevices(req.session.api_key, req.session.auth_token, res);
   
 });
 
@@ -65,14 +64,14 @@ router.get('/historian/:orgId', function(req, res) {
 });
 
 //get historical data of a deviceType of a org
-router.get('/historian/:orgId/:deviceType', function(req, res) {
+router.get('/historian/:orgId/types/:deviceType', function(req, res) {
 
   var orgId = req.params.orgId;
   var deviceType = req.params.deviceType;
 
   console.log("Fetching the historian data for orgId "+orgId+" for deviceType : "+deviceType); 
   
-  var uri= historian_path + pathSeperator + deviceType;
+  var uri= historian_path + pathSeperator + types_path + pathSeperator + deviceType;
 
   util.orgId = orgId;
   util.iot_httpCall(uri, req.session.api_key, req.session.auth_token, res, req.query);
@@ -80,7 +79,7 @@ router.get('/historian/:orgId/:deviceType', function(req, res) {
 });
 
 //get historical data of a device of particular deviceType
-router.get('/historian/:orgId/:deviceType/:deviceId', function(req, res) {
+router.get('/historian/:orgId/types/:deviceType/devices/:deviceId', function(req, res) {
 
   var orgId = req.params.orgId;
   var deviceType = req.params.deviceType;
@@ -88,7 +87,7 @@ router.get('/historian/:orgId/:deviceType/:deviceId', function(req, res) {
 
   console.log("Fetching the historian data  for orgId "+orgId+" for device : "+deviceId);
     
-  var uri= historian_path + pathSeperator + deviceType +  pathSeperator + deviceId;
+  var uri= historian_path + pathSeperator + types_path + pathSeperator + deviceType +pathSeperator + devices_path + pathSeperator + deviceId ;
 
   util.orgId = orgId;
   util.iot_httpCall(uri, req.session.api_key, req.session.auth_token, res, req.query);

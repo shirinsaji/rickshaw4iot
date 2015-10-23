@@ -23,7 +23,7 @@ var devices = [];
 $.ajax
 ({
 	type: "GET",
-	url: "/api/v0001/organization",
+	url: "/api/v0002/organization",
 	dataType: 'json',
 	async: false,
 
@@ -49,7 +49,7 @@ $.ajax
 $.ajax
 ({
 	type: "GET",
-	url: "/api/v0001/organization/getdevices",
+	url: "/api/v0002/organization/getdevices",
 	dataType: 'json',
 	async: true,
 
@@ -57,7 +57,7 @@ $.ajax
 
 		devices = data;
 		for(var d in devices){
-			$("#deviceslist").append("<option value="+devices[d].uuid+">"+devices[d].id+"</option>");
+			$("#deviceslist").append("<option value="+devices[d].clientId+">"+devices[d].deviceId+"</option>");
 		}
 	},
 	error: function (xhr, ajaxOptions, thrownError) {

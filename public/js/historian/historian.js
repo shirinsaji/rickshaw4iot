@@ -46,7 +46,7 @@ var Historian  = function () {
 			$.ajax
 			({
 				type: "GET",
-				url: "/api/v0001/historian/"+tokens[1]+"/"+tokens[2]+"/"+tokens[3],
+				url: "/api/v0002/historian/"+tokens[1]+"/types/"+tokens[2]+"/devices/"+tokens[3],
 				data: queryParam,
 				dataType: 'json',
 				async: true,

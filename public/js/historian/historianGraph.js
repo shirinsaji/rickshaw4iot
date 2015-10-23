@@ -101,11 +101,13 @@ var HistorianGraph = function(){
 
 	};
 
-	this.displayHistChart = function(device,data){
+	this.displayHistChart = function(device,histData){
 
 		var seriesData = [];
 
 		var counter = 0;
+
+		var data = histData.events;
 		
 		for(var i = data.length-1 ; i>=0 ;i-- ){	
 	   		

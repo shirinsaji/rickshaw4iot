@@ -56,7 +56,7 @@ router.use('/',auth_routes);
 //dashboard routes
 router.use('/dashboard', dashboard_routes);
 //proxy api routes TODO: remove this after datapower handles the CORS requests
-router.use('/api/v0001',api_routes);
+router.use('/api/v0002',api_routes);
 
 function getAuthFromVCAP(VCAP_SERVICES) {
 

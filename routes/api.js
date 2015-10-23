@@ -42,7 +42,6 @@ router.get('/organization/getdevices', function(req, res) {
   console.log("Fetching the devices for orgId "+orgId); 
   
   util.orgId = orgId;
-  console.log("Calling get");
   util.getDevices(req.session.api_key, req.session.auth_token, res);
   
 });

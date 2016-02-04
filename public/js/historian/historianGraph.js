@@ -113,9 +113,9 @@ var HistorianGraph = function(){
 	   		
 	   		var key = 0;	
 			
-			for (var j in data[i].evt){
+			for (var j in data[i].evt) {
 
-				if (typeof data[i].evt[j] !== 'string') {
+				if (typeof data[i].evt[j] === 'number') {
 					if(i===data.length-1){
 						seriesData[key]={};
 						seriesData[key].name=j;
@@ -128,6 +128,22 @@ var HistorianGraph = function(){
 					seriesData[key].data[counter].y = data[i].evt[j];
 				
 					key++;
+				} else (typeof data[i].evt[j] === 'string') {
+					if(!isNaN(data[i].evt[j])) {
+						var value = parseInt(data[i].evt[j]);
+						if(i===data.length-1){
+							seriesData[key]={};
+							seriesData[key].name=j;
+							seriesData[key].color = this.palette.color();
+							seriesData[key].data=[];	
+						}
+						
+						seriesData[key].data[counter]={};
+						seriesData[key].data[counter].x = data[i].timestamp.$date/1000;// timestamp;
+						seriesData[key].data[counter].y = value;
+					
+						key++;
+					}
 				}
 			}
 			

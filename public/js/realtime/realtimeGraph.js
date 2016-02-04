@@ -119,10 +119,8 @@ var RealtimeGraph = function(){
 				}
 				key++;
 			} else if (typeof data.d[j] === 'string') {
-
 				if(!isNaN(data.d[j])) {
-
-					var value = parseInt(data.d[j]);
+					var value = parseFloat(data.d[j]);
 					this.graph.series[key].data.push({x:timestamp,y:value});
 					if (this.graph.series[key].data.length > maxPoints)
 					{
@@ -153,9 +151,8 @@ var RealtimeGraph = function(){
 				seriesData[key].data[0].y = data.d[j];
 				key++;
 			} else if (typeof data.d[j] === 'string') {
-
 				if(!isNaN(data.d[j])) {
-					var value = parseInt(data.d[j]);
+					var value = parseFloat(data.d[j]);
 					seriesData[key]={};
 					seriesData[key].name=j;
 					seriesData[key].color = palette.color();

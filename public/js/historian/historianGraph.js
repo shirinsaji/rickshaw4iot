@@ -128,9 +128,9 @@ var HistorianGraph = function(){
 					seriesData[key].data[counter].y = data[i].evt[j];
 				
 					key++;
-				} else (typeof data[i].evt[j] === 'string') {
+				} else if (typeof data[i].evt[j] == 'string') {
 					if(!isNaN(data[i].evt[j])) {
-						var value = parseInt(data[i].evt[j]);
+						var value = parseFloat(data[i].evt[j]);
 						if(i===data.length-1){
 							seriesData[key]={};
 							seriesData[key].name=j;

@@ -24,7 +24,7 @@ var index = require('./routes/index');
 var app = express();
 
 var http_host = (process.env.VCAP_APP_HOST || '0.0.0.0');
-var http_port = (process.env.VCAP_APP_PORT || 7000);
+var http_port = (process.env.PORT || 7000);
 
 app.set('port', http_port);
 app.set('host',http_host);

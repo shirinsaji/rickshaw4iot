@@ -137,4 +137,4 @@ make the REST call to get the historical data
 [express]:http://expressjs.com
 [Rickshaw]:http://code.shutterstock.com/rickshaw/
 [MQTT paho client]:http://www.eclipse.org/paho/clients/js/
-[recipe]:https://developer.ibm.com/iot/recipes/visualize-data/
+[recipe]:https://developer.ibm.com/recipes/tutorials/visualizing-your-data/
